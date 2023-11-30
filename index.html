@@ -30,8 +30,67 @@
 <div id="myMap" style="width:100%;height:65%;position:absolute;bottom:0;"></div>
 <!-- /MapArea -->
 
+
+
+
+<!-- googleスプレッドシートの取得 -->
+<script>
+    const apiURL = '';
+
+    async function loadData() {
+    const response = await fetch(apiURL);
+    const data = await response.json();
+    console.log(data)
+ }
+
+loadData();
+</script>
+
+
+<!-- what3wordsAPI -->
+<script type="module" async src=""></script>
+<!-- ↑what3wordsのAPIキー -->
+
+<script nomodule async src="https://cdn.what3words.com/javascript-components@4.1.6/dist/what3words/what3words.js"></script>
+
+<form id="form" method="GET">
+   <div>
+      <what3words-autosuggest api_key="">
+        <input type="text" />
+      </what3words-autosuggest>
+   </div>
+</form>
+
+
+
+<script src="https://assets.what3words.com/sdk/v3/what3words.js?key="></script>
+<script>
+what3words.api.convertTo3wa({lat:51.508344, lng:-0.12549900}, 'ja')
+  .then(function(response) {
+    console.log("[convertTo3wa]", response);
+  });
+</script>
+
+<script>
+    what3words.api.convertToCoordinates("filled.count.soap")
+  .then(function(response) {
+     console.log("[convertToCoordinates]", response);
+  });
+</script>
+
+<script>
+    what3words.api.autosuggest("fun.with.code")
+  .then(function(response) {
+     console.log("[autosuggest]", response);
+  });
+</script>
+
+
+
+
 <!-- jQuery&GoogleMapsAPI -->
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=' async defer></script>
 <script src="js/BmapQuery.js"></script>
 <script>
 //****************************************
